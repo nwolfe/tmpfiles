@@ -1,7 +1,8 @@
 # TODO make the sandbox location a parameter
 class tmpfiles {
 
-  notify { "Custom fact PWD: ${custom_fact_pwd}": }
+  notify { "Custom fact PWD: $custom_fact_pwd": }
+  notify { "External fact DATE: $external_fact_date": }
 
   filebucket { 'backups':
     # use central filebucket on the server
