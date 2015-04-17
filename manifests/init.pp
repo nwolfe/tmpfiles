@@ -47,4 +47,10 @@ class tmpfiles {
     ensure  => directory,
     recurse => true,
   }
+
+  file { 'puppet-managed-custom-mount-point-file':
+    path   => "$sandbox/puppet-managed-custom-mount-point-file",
+    ensure => present,
+    source => 'puppet:///custom_mount_point/custom-mount-point-file',
+  }
 }
