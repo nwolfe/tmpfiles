@@ -48,9 +48,16 @@ class tmpfiles {
     recurse => true,
   }
 
-  file { 'puppet-managed-custom-mount-point-file':
-    path   => "$sandbox/puppet-managed-custom-mount-point-file",
+  file { 'puppet-managed-mount-point-source-file':
+    path   => "$sandbox/puppet-managed-mount-point-source-file",
     ensure => present,
-    source => 'puppet:///custom_mount_point/custom-mount-point-file',
+    source => 'puppet:///custom_mount_point/mount-point-source-file',
+  }
+
+  file { 'puppet-managed-mount-point-binary-file':
+    path   => "$sandbox/puppet-managed-mount-point-binary-file",
+    ensure => present,
+    mode   => "0755",
+    source => 'puppet:///custom_mount_point/mount-point-binary-file',
   }
 }
