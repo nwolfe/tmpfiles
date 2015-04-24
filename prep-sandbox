@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Used during investigation work for SERVER-526.
+# Prepares the 'puppet-sandbox' directory so the subsequent
+# agent run using the 'tmpfiles' module manifest will exercise
+# all of the master's HTTP API for the purposes of recording.
+
+rm -f ./puppet-sandbox/puppet-managed-content-file
+rm -f ./puppet-sandbox/puppet-managed-binary-file
+rm -f ./puppet-sandbox/puppet-managed-mount-point-source-file
+rm -f ./puppet-sandbox/puppet-managed-mount-point-binary-file
+cp /usr/bin/who ./puppet-sandbox/puppet-managed-binary-file
+rm -rf ./puppet-sandbox/puppet-managed-recursive-directory
+echo "content for backup" > ./puppet-sandbox/puppet-managed-source-file
